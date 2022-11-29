@@ -3,11 +3,6 @@ html, body {
     height: 100%;
 }
 
-#sidebar {
-    height: 100%;
-    min-height: 100vh;
-    min-width: 10em;
-}
 
 #home {
     grid-template-columns: .2fr .8fr;
