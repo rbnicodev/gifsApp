@@ -8,8 +8,3 @@ html, body {
     grid-template-columns: .2fr .8fr;
 }
 
-#gifs {
-    gap: 5em;
-    justify-items: center;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-}
