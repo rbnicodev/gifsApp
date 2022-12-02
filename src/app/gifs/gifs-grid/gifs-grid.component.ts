@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GifsService } from '../services/gifs.service';
 
 @Component({
   selector: 'app-gifs-grid',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./gifs-grid.component.css']
 })
 export class GifsGridComponent {
+
+  constructor( private gifsService: GifsService ) {
+
+  }
+
+  get outData() {
+    return this.gifsService.results;
+  }
 
 }
