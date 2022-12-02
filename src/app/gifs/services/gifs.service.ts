@@ -16,7 +16,9 @@ export class GifsService {
     return [...this._history]
   }
 
-  constructor ( private http: HttpClient ) {}
+  constructor ( private http: HttpClient ) {
+    this._history = JSON.parse(localStorage.getItem('historial')!) || []; 
+  }
 
   searchGifs ( query: string ) {
 
@@ -27,7 +29,9 @@ export class GifsService {
     
     this._history.unshift( query );
 
-    if (this._history.length > 10) this._history.splice(0, 10);
+    if (this._history.length > 10) this._history.splice(10);
+
+    localStorage.setItem('historial', JSON.stringify(this._history));
 
     this.http.get<SearchGifsResponse>(`http://api.giphy.com/v1/gifs/search?api_key=dLq0RY1bpDo199Aw3e4FSpEcCpTghEq7&q=${ query }&limit=10`)
       .subscribe( out => {
